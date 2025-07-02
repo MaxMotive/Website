@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Max Motive Workshop Support</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background-color: #c43417;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      max-width: 250px;
+      margin-bottom: 10px;
+    }
+    nav {
+      background-color: #a52f12;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #c43417;
+    }
+    footer {
+      background-color: #c43417;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .language-switcher {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .language-switcher a {
+      margin: 0 10px;
+      color: #c43417;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Logo-MAXM.png" alt="Max Motive Logo">
+    <h1>Max Motive Workshop Support</h1>
+    <p id="slogan">Gespecialiseerd in het onderhoud en de herstelling van aircomachines</p>
+  </header>
+
+  <nav>
+    <a href="#diensten" id="nav-diensten">Diensten</a>
+    <a href="#contact" id="nav-contact">Contact</a>
+  </nav>
+
+  <div class="language-switcher">
+    <a onclick="setLanguage('nl')">NL</a> | <a onclick="setLanguage('fr')">FR</a> | <a onclick="setLanguage('en')">EN</a>
+  </div>
+
+  <section id="diensten">
+    <h2 id="diensten-title">Onze Diensten</h2>
+    <p id="diensten-intro"></p>
+    <ul id="merken-lijst"></ul>
+    <p id="diensten-extra"></p>
+  </section>
+
+  <section id="contact">
+    <h2 id="contact-title">Contact</h2>
+    <p id="contact-text">
+      Neem contact op via e-mail:<br>
+      <a href="mailto:maxmotive808@gmail.com">maxmotive808@gmail.com</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Max Motive Workshop Support. Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      nl: {
+        slogan: "Gespecialiseerd in het onderhoud en de herstelling van aircomachines",
+        dienstenTitle: "Onze Diensten",
+        dienstenIntro: "Wij zijn gespecialiseerd in het onderhoud en de herstelling van aircomachines van de merken:",
+        merken: [
+          "Hella (SECU Smart, ACTT200, Husky series)",
+          "Hella Behr",
+          "Bosch (ACS Series)",
+          "Valeo",
+          "Robinair (AC960)"
+        ],
+        dienstenExtra: "Wij zorgen voor een professionele en betrouwbare service voor al uw werkplaatsapparatuur.\nActief in heel België, Nederland en Frankrijk.",
+        contactTitle: "Contact",
+        contactText: "Neem contact op via e-mail:<br><a href=\"mailto:maxmotive808@gmail.com\">maxmotive808@gmail.com</a>",
+        navDiensten: "Diensten",
+        navContact: "Contact"
+      },
+      fr: {
+        slogan: "Spécialisé dans l'entretien et la réparation des machines de climatisation",
+        dienstenTitle: "Nos Services",
+        dienstenIntro: "Nous sommes spécialisés dans l'entretien et la réparation des machines de climatisation des marques :",
+        merken: [
+          "Hella (SECU Smart, ACTT200, Husky series)",
+          "Hella Behr",
+          "Bosch (ACS Series)",
+          "Valeo",
+          "Robinair (AC960)"
+        ],
+        dienstenExtra: "Nous offrons un service professionnel et fiable pour tous vos équipements d'atelier.\nActif dans toute la Belgique, les Pays-Bas et la France.",
+        contactTitle: "Contact",
+        contactText: "Contactez-nous par e-mail :<br><a href=\"mailto:maxmotive808@gmail.com\">maxmotive808@gmail.com</a>",
+        navDiensten: "Services",
+        navContact: "Contact"
+      },
+      en: {
+        slogan: "Specialized in maintenance and repair of air conditioning machines",
+        dienstenTitle: "Our Services",
+        dienstenIntro: "We specialize in maintenance and repair of air conditioning machines from brands:",
+        merken: [
+          "Hella (SECU Smart, ACTT200, Husky series)",
+          "Hella Behr",
+          "Bosch (ACS Series)",
+          "Valeo",
+          "Robinair (AC960)"
+        ],
+        dienstenExtra: "We provide professional and reliable service for all your workshop equipment.\nActive throughout Belgium, the Netherlands and France.",
+        contactTitle: "Contact",
+        contactText: "Get in touch via email:<br><a href=\"mailto:maxmotive808@gmail.com\">maxmotive808@gmail.com</a>",
+        navDiensten: "Services",
+        navContact: "Contact"
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById('slogan').innerText = t.slogan;
+      document.getElementById('diensten-title').innerText = t.dienstenTitle;
+      document.getElementById('diensten-intro').innerText = t.dienstenIntro;
+      const merkenList = document.getElementById('merken-lijst');
+      merkenList.innerHTML = '';
+      t.merken.forEach(item => {
+        const li = document.createElement('li');
+        li.innerText = item;
+        merkenList.appendChild(li);
+      });
+      document.getElementById('diensten-extra').innerText = t.dienstenExtra;
+      document.getElementById('contact-title').innerText = t.contactTitle;
+      document.getElementById('contact-text').innerHTML = t.contactText;
+      document.getElementById('nav-diensten').innerText = t.navDiensten;
+      document.getElementById('nav-contact').innerText = t.navContact;
+    }
+
+    // Set default language
+    setLanguage('nl');
+  </script>
+</body>
+</html>
